@@ -2,8 +2,7 @@
 	"type": "module",
 	"name": "typify-contracts",
 	"scripts": {
-		"format": "prettier -w ./",
-		"postinstall": "npm run format"
+		"format": "prettier -w ./"
 	},
 	"devDependencies": {
 		"prettier": "latest",
