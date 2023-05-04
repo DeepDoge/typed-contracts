@@ -10,14 +10,14 @@
 		"prettier-plugin-organize-imports": "latest"
 	},
 	"dependencies": {
-		"@ethereum-waffle/compiler": "^4.0.3",
-		"@types/command-line-args": "^5.2.0",
-		"@types/node": "^18.16.3",
-		"command-line-args": "^5.2.1",
-		"ethers": "^6.3.0",
-		"hotscript": "^1.0.11",
-		"tsx": "^3.12.7",
-		"typescript": "^5.0.4"
+		"@ethereum-waffle/compiler": "latest",
+		"@types/command-line-args": "latest",
+		"@types/node": "latest",
+		"command-line-args": "latest",
+		"ethers": "latest",
+		"hotscript": "latest",
+		"tsx": "latest",
+		"typescript": "latest"
 	},
 	"bin": "./library/cli.ts"
 }
