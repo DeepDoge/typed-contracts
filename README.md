@@ -8,5 +8,8 @@ npm i github:DeepDoge/typify-contracts -D
 
 # Usage
 ```bash
-typify-contract --src ./path/to/contracts/dir
+typify-contracts --src ./path/to/contracts/dir
+```
+```bash
+npx typify-contracts --src ./path/to/contracts/dir
 ```
