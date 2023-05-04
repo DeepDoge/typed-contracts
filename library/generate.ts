@@ -29,10 +29,9 @@ export async function generate(contractsDirPath: string) {
 		const abi = jsonObj.abi
 		const type = [
 			`import type { TypifyContract } from "typify-contracts/library/types/typify"`,
-			`import type { Provider } from "@ethersproject/providers"`,
-			`import { Contract, Signer } from "ethers"`,
+			`import { Contract, ContractRunner } from "ethers"`,
 			`export type ${name}_Contract = TypifyContract<typeof abi> & {}`,
-			`export const connect_${name} = (address: string, signer: Signer | Provider) => new Contract(address, abi, signer) as ${name}_Contract`,
+			`export const connect_${name} = (address: string, runner: ContractRunner) => new Contract(address, abi, runner) as ${name}_Contract`,
 			`const abi = ${JSON.stringify(abi, null, "\t")} as const`,
 		].join("\n")
 		fs.writeFileSync(path.join(artifactsDirPath, tsFilename), type)
