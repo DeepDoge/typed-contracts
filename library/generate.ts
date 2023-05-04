@@ -1,9 +1,6 @@
-import type _fs from "fs"
-import type { compileAndSave as _compileAndSave } from "@ethereum-waffle/compiler"
-import type _path from "path"
-declare const fs: typeof _fs
-declare const path: typeof _path
-declare const compileAndSave: typeof _compileAndSave
+import fs from "fs"
+import { compileAndSave } from "@ethereum-waffle/compiler"
+import path from "path"
 
 export async function generate(contractsDirPath: string) {
 	const contractFilenames = fs.readdirSync(contractsDirPath).filter((filename) => filename.endsWith(".sol"))
