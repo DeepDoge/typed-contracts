@@ -1,6 +1,14 @@
 {
 	"type": "module",
 	"name": "typify-contracts",
+	"scripts": {
+		"format": "prettier -w ./",
+		"postinstall": "npm run format"
+	},
+	"devDependencies": {
+		"prettier": "latest",
+		"prettier-plugin-organize-imports": "latest"
+	},
 	"dependencies": {
 		"@ethereum-waffle/compiler": "^4.0.3",
 		"@types/command-line-args": "^5.2.0",
