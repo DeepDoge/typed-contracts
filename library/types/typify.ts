@@ -1,4 +1,4 @@
-import type { BytesLike, Contract, ContractTransaction, Overrides as Overrides_ } from "ethers"
+import type { BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
 import type { Booleans, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
 import type { Abi } from "./abi"
 
@@ -29,8 +29,6 @@ interface ToType extends Fn {
 		]
 	>
 }
-
-type Overrides = Overrides_ & { from?: PromiseOrValue<string> } & {}
 
 interface ToFunction extends Fn {
 	$name: this["arg0"]["name"]
