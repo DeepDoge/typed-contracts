@@ -28,7 +28,7 @@ export async function generate(contractsDirPath: string) {
 			throw new Error("Json file is doesn't contain abi.")
 		const abi = jsonObj.abi
 		const type = [
-			`import type { TypifyContract } from "typify-smart-contracts/library/types/typify"`,
+			`import type { TypifyContract } from "typify-contracts/library/types/typify"`,
 			`import type { Provider } from "@ethersproject/providers"`,
 			`import { Contract, Signer } from "ethers"`,
 			`export type ${name}_Contract = TypifyContract<typeof abi> & {}`,
