@@ -36,7 +36,7 @@ interface ToFunction extends Fn {
 	$outputs: this["arg0"]["outputs"]
 
 	$inputsAsArgs: Pipe<this["$inputs"], [Tuples.Map<ComposeLeft<[Objects.Get<"type">, ToType]>>]>
-	$outputsAsTuple: Pipe<this["arg0"]["outputs"], [Tuples.Map<ComposeLeft<[Objects.Get<"type">, ToType]>>]>
+	$outputsAsTuple: Pipe<this["$outputs"], [Tuples.Map<ComposeLeft<[Objects.Get<"type">, ToType]>>]>
 
 	return: [
 		this["$name"],
