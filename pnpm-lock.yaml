@@ -24,7 +24,7 @@ dependencies:
     version: 5.0.4
   waffle-compiler:
     specifier: github:DeepDoge/waffle-compiler
-    version: github.com/DeepDoge/waffle-compiler/2c8156f719b10d828d679a6b11e880e4c125173b(ethers@6.3.0)(solc@0.8.19)
+    version: github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4(ethers@6.3.0)(solc@0.8.19)
 
 devDependencies:
   '@typescript-eslint/eslint-plugin':
@@ -1826,9 +1826,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  github.com/DeepDoge/waffle-compiler/2c8156f719b10d828d679a6b11e880e4c125173b(ethers@6.3.0)(solc@0.8.19):
-    resolution: {tarball: https://codeload.github.com/DeepDoge/waffle-compiler/tar.gz/2c8156f719b10d828d679a6b11e880e4c125173b}
-    id: github.com/DeepDoge/waffle-compiler/2c8156f719b10d828d679a6b11e880e4c125173b
+  github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4(ethers@6.3.0)(solc@0.8.19):
+    resolution: {tarball: https://codeload.github.com/DeepDoge/waffle-compiler/tar.gz/fe0e9a55f95dcd243471790bec134fe708f450c4}
+    id: github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4
     name: waffle-compiler
     version: 0.0.0
     peerDependencies:
