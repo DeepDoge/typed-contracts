@@ -16,6 +16,7 @@
 		"command-line-args": "latest",
 		"ethers": "latest",
 		"hotscript": "latest",
+		"tsx": "latest",
 		"typescript": "latest"
 	},
 	"peerDependencies": {
