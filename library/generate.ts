@@ -1,5 +1,5 @@
 import fs from "fs"
-import { compileAndSave } from "waffle-compiler/library"
+import { compileAndSave } from "waffle-compiler/library/compiler"
 import path from "path"
 
 export async function generate(contractsDirPath: string) {
