@@ -10,7 +10,7 @@
 		"prettier-plugin-organize-imports": "latest"
 	},
 	"dependencies": {
-		"@ethereum-waffle/compiler": "github:DeepDoge/waffle-compiler",
+		"waffle-compiler": "github:DeepDoge/waffle-compiler",
 		"@types/command-line-args": "latest",
 		"@types/node": "latest",
 		"command-line-args": "latest",

@@ -1,5 +1,5 @@
 import fs from "fs"
-import { compileAndSave } from "@ethereum-waffle/compiler"
+import { compileAndSave } from "waffle-compiler/library"
 import path from "path"
 
 export async function generate(contractsDirPath: string) {

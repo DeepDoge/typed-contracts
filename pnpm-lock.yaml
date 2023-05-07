@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@ethereum-waffle/compiler':
-    specifier: github:DeepDoge/waffle-compiler
-    version: 4.0.3(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(solc@0.8.19)(typechain@8.1.1)(typescript@5.0.4)
   '@types/command-line-args':
     specifier: latest
     version: 5.2.0
@@ -25,6 +22,9 @@ dependencies:
   typescript:
     specifier: latest
     version: 5.0.4
+  waffle-compiler:
+    specifier: github:DeepDoge/waffle-compiler
+    version: github.com/DeepDoge/waffle-compiler/d1c97cb28f30ea9ac9e52b10874c3801e86501f5(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(solc@0.8.19)(typechain@8.1.1)(typescript@5.0.4)
 
 devDependencies:
   '@typescript-eslint/eslint-plugin':
@@ -298,32 +298,6 @@ packages:
     resolution: {integrity: sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@ethereum-waffle/compiler@4.0.3(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(solc@0.8.19)(typechain@8.1.1)(typescript@5.0.4):
-    resolution: {integrity: sha512-5x5U52tSvEVJS6dpCeXXKvRKyf8GICDwiTwUvGD3/WD+DpvgvaoHOL82XqpTSUHgV3bBq6ma5/8gKUJUIAnJCw==}
-    engines: {node: '>=10.0'}
-    peerDependencies:
-      ethers: '*'
-      solc: '*'
-      typechain: ^8.0.0
-    dependencies:
-      '@resolver-engine/imports': 0.3.3
-      '@resolver-engine/imports-fs': 0.3.3
-      '@typechain/ethers-v5': 10.2.1(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(typechain@8.1.1)(typescript@5.0.4)
-      '@types/mkdirp': 0.5.2
-      '@types/node-fetch': 2.6.3
-      ethers: 6.3.0
-      mkdirp: 0.5.6
-      node-fetch: 2.6.9
-      solc: 0.8.19
-      typechain: 8.1.1(typescript@5.0.4)
-    transitivePeerDependencies:
-      - '@ethersproject/abi'
-      - '@ethersproject/providers'
-      - encoding
-      - supports-color
-      - typescript
-    dev: false
 
   /@ethersproject/abi@5.7.0:
     resolution: {integrity: sha512-351ktp42TiRcYB3H1OP8yajPeAQstMW/yCFokj/AthP9bLHzQFPlOrxOcwYEDkUAICmOHljvN4K39OMTMUa9RA==}
@@ -2335,3 +2309,32 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  github.com/DeepDoge/waffle-compiler/d1c97cb28f30ea9ac9e52b10874c3801e86501f5(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(solc@0.8.19)(typechain@8.1.1)(typescript@5.0.4):
+    resolution: {tarball: https://codeload.github.com/DeepDoge/waffle-compiler/tar.gz/d1c97cb28f30ea9ac9e52b10874c3801e86501f5}
+    id: github.com/DeepDoge/waffle-compiler/d1c97cb28f30ea9ac9e52b10874c3801e86501f5
+    name: '@ethereum-waffle/compiler'
+    version: 0.0.0
+    peerDependencies:
+      ethers: '*'
+      solc: '*'
+      typechain: ^8.0.0
+    dependencies:
+      '@resolver-engine/imports': 0.3.3
+      '@resolver-engine/imports-fs': 0.3.3
+      '@typechain/ethers-v5': 10.2.1(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(typechain@8.1.1)(typescript@5.0.4)
+      '@types/mkdirp': 0.5.2
+      '@types/node': 20.1.0
+      '@types/node-fetch': 2.6.3
+      ethers: 6.3.0
+      mkdirp: 0.5.6
+      node-fetch: 2.6.9
+      solc: 0.8.19
+      typechain: 8.1.1(typescript@5.0.4)
+    transitivePeerDependencies:
+      - '@ethersproject/abi'
+      - '@ethersproject/providers'
+      - encoding
+      - supports-color
+      - typescript
+    dev: false
