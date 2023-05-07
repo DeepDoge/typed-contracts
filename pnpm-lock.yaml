@@ -2,7 +2,7 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@ethereum-waffle/compiler':
-    specifier: latest
+    specifier: github:DeepDoge/waffle-compiler
     version: 4.0.3(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(ethers@6.3.0)(solc@0.8.19)(typechain@8.1.1)(typescript@5.0.4)
   '@types/command-line-args':
     specifier: latest

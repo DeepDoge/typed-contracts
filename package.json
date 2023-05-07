@@ -5,12 +5,12 @@
 		"format": "prettier -w ./"
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "latest",
 		"prettier": "latest",
-		"prettier-plugin-organize-imports": "latest",
-		"@typescript-eslint/eslint-plugin": "latest"
+		"prettier-plugin-organize-imports": "latest"
 	},
 	"dependencies": {
-		"@ethereum-waffle/compiler": "latest",
+		"@ethereum-waffle/compiler": "github:DeepDoge/waffle-compiler",
 		"@types/command-line-args": "latest",
 		"@types/node": "latest",
 		"command-line-args": "latest",
