@@ -20,7 +20,7 @@
 		"typescript": "latest"
 	},
 	"peerDependencies": {
-		"tsx": "latest"
+		"tsx": "*"
 	},
 	"bin": "./library/cli.ts"
 }
