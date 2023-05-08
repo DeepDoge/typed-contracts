@@ -2,39 +2,39 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@types/command-line-args':
-    specifier: latest
+    specifier: ^5.2.0
     version: 5.2.0
   '@types/node':
-    specifier: latest
+    specifier: ^20.1.0
     version: 20.1.0
   command-line-args:
-    specifier: latest
+    specifier: ^5.2.1
     version: 5.2.1
   ethers:
-    specifier: latest
+    specifier: ^6.3.0
     version: 6.3.0
   hotscript:
-    specifier: latest
+    specifier: ^1.0.12
     version: 1.0.12
   tsx:
-    specifier: latest
+    specifier: ^3.12.7
     version: 3.12.7
   typescript:
-    specifier: latest
+    specifier: ^5.0.4
     version: 5.0.4
   waffle-compiler:
-    specifier: github:DeepDoge/waffle-compiler
-    version: github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4(ethers@6.3.0)(solc@0.8.19)
+    specifier: github:DeepDoge/waffle-compiler#1.0.0
+    version: github.com/DeepDoge/waffle-compiler/c66ec750395649c675be94e4e343357b4dd3eb98(ethers@6.3.0)(solc@0.8.19)
 
 devDependencies:
   '@typescript-eslint/eslint-plugin':
-    specifier: latest
+    specifier: ^5.59.2
     version: 5.59.2(@typescript-eslint/parser@5.59.2)(eslint@8.40.0)(typescript@5.0.4)
   prettier:
-    specifier: latest
+    specifier: ^2.8.8
     version: 2.8.8
   prettier-plugin-organize-imports:
-    specifier: latest
+    specifier: ^3.2.2
     version: 3.2.2(prettier@2.8.8)(typescript@5.0.4)
 
 packages:
@@ -1826,9 +1826,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4(ethers@6.3.0)(solc@0.8.19):
-    resolution: {tarball: https://codeload.github.com/DeepDoge/waffle-compiler/tar.gz/fe0e9a55f95dcd243471790bec134fe708f450c4}
-    id: github.com/DeepDoge/waffle-compiler/fe0e9a55f95dcd243471790bec134fe708f450c4
+  github.com/DeepDoge/waffle-compiler/c66ec750395649c675be94e4e343357b4dd3eb98(ethers@6.3.0)(solc@0.8.19):
+    resolution: {tarball: https://codeload.github.com/DeepDoge/waffle-compiler/tar.gz/c66ec750395649c675be94e4e343357b4dd3eb98}
+    id: github.com/DeepDoge/waffle-compiler/c66ec750395649c675be94e4e343357b4dd3eb98
     name: waffle-compiler
     version: 0.0.0
     peerDependencies:

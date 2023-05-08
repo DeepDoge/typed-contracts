@@ -5,19 +5,19 @@
 		"format": "prettier -w ./"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "latest",
-		"prettier": "latest",
-		"prettier-plugin-organize-imports": "latest"
+		"@typescript-eslint/eslint-plugin": "^5.59.2",
+		"prettier": "^2.8.8",
+		"prettier-plugin-organize-imports": "^3.2.2"
 	},
 	"dependencies": {
-		"waffle-compiler": "github:DeepDoge/waffle-compiler",
-		"@types/command-line-args": "latest",
-		"@types/node": "latest",
-		"command-line-args": "latest",
-		"ethers": "latest",
-		"hotscript": "latest",
-		"tsx": "latest",
-		"typescript": "latest"
+		"waffle-compiler": "github:DeepDoge/waffle-compiler#1.0.0",
+		"@types/command-line-args": "^5.2.0",
+		"@types/node": "^20.1.0",
+		"command-line-args": "^5.2.1",
+		"ethers": "^6.3.0",
+		"hotscript": "^1.0.12",
+		"tsx": "^3.12.7",
+		"typescript": "^5.0.4"
 	},
 	"peerDependencies": {
 		"tsx": "*"
