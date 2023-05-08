@@ -3,10 +3,7 @@
 Compile your Solidity code, and generate types for it, with the minimal file generation needed.
 
 # Install
-
-```bash
-npm i github:DeepDoge/typify-contracts#0.0.3 -D
-```
+[Releases](https://github.com/DeepDoge/typify-contracts/releases)
 
 # Usage
 
