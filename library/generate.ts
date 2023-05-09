@@ -28,7 +28,7 @@ export async function generate(contractsDirpath: string) {
 				throw new Error("Json file is doesn't contain abi.")
 			abi = jsonData.abi
 		} catch (error) {
-			console.warn("Error while parsing", fullpath, error)
+			console.warn("%cSkipping", "color:yellow", fullpath, error)
 			continue
 		}
 
