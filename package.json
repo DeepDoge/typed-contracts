@@ -10,14 +10,14 @@
 		"prettier-plugin-organize-imports": "^3.2.2"
 	},
 	"dependencies": {
-		"waffle-compiler": "github:DeepDoge/waffle-compiler#1.0.0",
 		"@types/command-line-args": "^5.2.0",
 		"@types/node": "^20.1.0",
 		"command-line-args": "^5.2.1",
 		"ethers": "^6.3.0",
 		"hotscript": "1.0.11",
 		"tsx": "^3.12.7",
-		"typescript": "^5.0.4"
+		"typescript": "^5.0.4",
+		"waffle-compiler": "github:DeepDoge/waffle-compiler#1.0.1"
 	},
 	"peerDependencies": {
 		"tsx": "*"
