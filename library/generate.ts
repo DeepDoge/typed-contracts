@@ -14,7 +14,10 @@ export async function generate(contractsDirpath: string) {
 	console.log("Generated abi files ")
 	console.log()
 
-	const dirents = fs.readdirSync(artifactsDirpath, { recursive: true, encoding: "utf-8", withFileTypes: true })
+	const dirents = fs.readdirSync(artifactsDirpath, { encoding: "utf-8", withFileTypes: true })
+
+	console.log("Generating typescript files...")
+
 	for (const dirent of dirents) {
 		if (!dirent.isFile()) continue
 		if (!dirent.name.endsWith(".json")) continue
@@ -35,7 +38,6 @@ export async function generate(contractsDirpath: string) {
 		const name = path.basename(fullpath, ".json")
 		const dirname = path.dirname(fullpath)
 		const tsFilename = `${name}.ts`
-		console.log(`Generating ${tsFilename}...`)
 
 		const type = [
 			`import type { TypifyContract } from "typify-contracts/library/types/typify"`,
