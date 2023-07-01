@@ -4,6 +4,4 @@
 		"source.fixAll.eslint": true
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"workbench.colorTheme": "Atom One Dark",
-	"workbench.iconTheme": "material-icon-theme"
 }

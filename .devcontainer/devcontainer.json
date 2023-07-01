@@ -18,12 +18,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"eamodio.gitlens",
 				"esbenp.prettier-vscode",
-				"dbaeumer.vscode-eslint",
-				"akamud.vscode-theme-onedark",
-				"GitHub.copilot",
-				"PKief.material-icon-theme"
+				"dbaeumer.vscode-eslint"
 			]
 		}
 	}
