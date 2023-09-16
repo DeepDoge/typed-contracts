@@ -12,10 +12,6 @@ First make sure you have `tsx` installed as dev dependency in your project:
 ```bash
 npm i -D tsx
 ```
-or:
-```bash
-bun add -D tsx
-```
 
 
 Then just run the thing:
@@ -25,8 +21,4 @@ typify-contracts --src ./path/to/contracts/dir
 or:
 ```bash
 npx typify-contracts --src ./path/to/contracts/dir
-```
-or:
-```bash
-bunx typify-contracts --src ./path/to/contracts/dir
 ```
