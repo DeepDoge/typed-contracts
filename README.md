@@ -8,10 +8,25 @@ Compile your Solidity code, and generate types for it, with the minimal file gen
 
 # Usage
 
+First make sure you have `tsx` installed as dev dependency in your project:
+```bash
+npm i -D tsx
+```
+or:
+```bash
+bun add -D tsx
+```
+
+
+Then just run the thing:
 ```bash
 typify-contracts --src ./path/to/contracts/dir
 ```
-
+or:
 ```bash
 npx typify-contracts --src ./path/to/contracts/dir
+```
+or:
+```bash
+bunx typify-contracts --src ./path/to/contracts/dir
 ```
