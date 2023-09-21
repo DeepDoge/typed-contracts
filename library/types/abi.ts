@@ -9,14 +9,18 @@ export namespace Abi {
 	}
 
 	export type FunctionItem = {
-		type: FunctionItem.Type
+		type: "function"
 		name: string
 		inputs: readonly FunctionItem.Input[]
 		outputs: readonly FunctionItem.Output[]
 		stateMutability: FunctionItem.StateMutability
+	} | {
+		type: "constructor"
+		inputs: readonly FunctionItem.Input[]
+		stateMutability: "nonpayable"
 	}
 	export namespace FunctionItem {
-		export type Type = "function" | "constructor"
+		export type Type = FunctionItem["type"]
 		export type Input = Argument & {}
 		export type Output = Argument & {}
 		export type StateMutability = "pure" | "view" | "constant" | "nonpayable" | "payable"
