@@ -20,15 +20,14 @@ jobs:
             - name: Install Bun
               run: |
                   curl -fsSL https://bun.sh/install | bash
-                  export PATH="$HOME/.bun/bin:$PATH"
 
             - name: Update Bun
               run: |
-                  bun update
+                  PATH="$HOME/.bun/bin:$PATH" bun update
 
             - name: Compile CLI
               run: |
-                  bun compile
+                  PATH="$HOME/.bun/bin:$PATH" bun compile
 
             - name: Create Archive
               run: |
