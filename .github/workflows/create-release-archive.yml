@@ -25,10 +25,10 @@ jobs:
                   curl -fsSL https://bun.sh/install | bash
 
                   # Bun Update
-                  bun update
+                  ~/.bun/bin/bun update
 
                   # Compile CLI
-                  bun build ./bin/cli.ts --compile
+                  ~/.bun/bin/bun build ./bin/cli.ts --compile
 
                   # Create a directory to store the archive
                   mkdir -p release-archives
