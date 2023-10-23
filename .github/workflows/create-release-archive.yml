@@ -17,18 +17,21 @@ jobs:
               id: set-tag-name
               run: echo "::set-output name=tag_name::$(echo ${{ github.ref }} | sed 's/refs\/tags\///')"
 
+            - name: Install Bun
+              run: |
+                  curl -fsSL https://bun.sh/install | bash
+
+            - name: Update Bun
+              run: |
+                  bun update
+
+            - name: Compile CLI
+              run: |
+                  bun build ./bin/cli.ts --compile
+
             - name: Create Archive
               run: |
                   TAG_NAME="${{ steps.set-tag-name.outputs.tag_name }}"
-
-                  # Install Bun
-                  curl -fsSL https://bun.sh/install | bash
-
-                  # Bun Update
-                  ~/.bun/bin/bun update
-
-                  # Compile CLI
-                  ~/.bun/bin/bun build ./bin/cli.ts --compile
 
                   # Create a directory to store the archive
                   mkdir -p release-archives
