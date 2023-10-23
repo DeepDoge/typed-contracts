@@ -14,6 +14,12 @@ Let's first install peer dependencies:
 npm i -D ethers
 ```
 
+or:
+
+```bash
+bun add -d ethers
+```
+
 Then just run the thing:
 
 ```bash
