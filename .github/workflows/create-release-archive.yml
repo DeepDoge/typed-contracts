@@ -20,15 +20,14 @@ jobs:
             - name: Install Bun
               run: |
                   curl -fsSL https://bun.sh/install | bash
-                  . ~/.bashrc
 
             - name: Update Bun
               run: |
-                  bun update
+                  bash bun update
 
             - name: Compile CLI
               run: |
-                  bun compile
+                  bash bun compile
 
             - name: Create Archive
               run: |
