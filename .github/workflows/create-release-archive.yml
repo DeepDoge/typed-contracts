@@ -34,13 +34,13 @@ jobs:
                   TAG_NAME="${{ steps.set-tag-name.outputs.tag_name }}"
 
                   # Create a directory to store the archive
-                  mkdir -p release-archives
+                  mkdir -p ~/release-archives
 
                   # Check if .npmignore exists, and if so, use it to filter files for archiving
                    if [ -f ".npmignore" ]; then
-                    tar -czvf release-archives/package.tgz --exclude-from=.npmignore
+                    tar -czvf ~/release-archives/package.tgz --exclude-from=.npmignore .
                    else
-                    tar -czvf release-archives/package.tgz .
+                    tar -czvf ~/release-archives/package.tgz .
                    fi
 
             - name: Upload Archive to Release
@@ -48,7 +48,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: package
-                  path: release-archives/package.tgz
+                  path: ~/release-archives/package.tgz
 
             - name: Get Release ID
               id: get-release-id
