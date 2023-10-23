@@ -20,6 +20,7 @@ jobs:
             - name: Install Bun
               run: |
                   curl -fsSL https://bun.sh/install | bash
+                  export PATH="$HOME/.bun/bin:$PATH"
 
             - name: Update Bun
               run: |
