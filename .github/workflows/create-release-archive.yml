@@ -27,7 +27,7 @@ jobs:
 
             - name: Compile CLI
               run: |
-                  ~/.bun/bin/bun build ./bin/cli.ts --compile
+                  ~/.bun/bin/bun compile
 
             - name: Create Archive
               run: |
