@@ -3,7 +3,7 @@
 	"name": "typify-contracts",
 	"scripts": {
 		"format": "prettier -w ./",
-		"compile": "bun build ./bin/cli.ts --compile"
+		"compile": "bun build ./cli.ts --compile --outfile ./bin/cli"
 	},
 	"devDependencies": {
 		"bun-types": "^1.0.7",
@@ -17,5 +17,5 @@
 		"hotscript": "1.0.11",
 		"waffle-compiler": "github:DeepDoge/waffle-compiler#1.0.1"
 	},
-	"bin": "./bun/cli"
+	"bin": "./bin/cli"
 }
