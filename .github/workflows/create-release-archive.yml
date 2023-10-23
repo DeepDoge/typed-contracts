@@ -35,7 +35,14 @@ jobs:
 
                   # Create a directory to store the archive
                   mkdir -p release-archives
-                  tar -czvf release-archives/package.tgz bin package.json LICENSE library tsconfig.json
+                  mkdir package -p
+                  mv bin package/
+                  mv package.json package/
+                  mv LICENSE package/
+                  mv library package/
+                  mv tsconfig.json package/
+
+                  tar -czvf release-archives/package.tgz package
 
             - name: Upload Archive to Release
               id: upload-archive

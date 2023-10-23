@@ -6,34 +6,28 @@ Compile your Solidity code, and generate types for it, with the minimal file gen
 
 [Install Instructions](https://github.com/DeepDoge/typify-contracts/releases)
 
-## Usage (Node)
+## Usage
 
 Let's first install per dependencies:
+
 ```bash
-npm i -D tsx ethers solc
+npm i -D ethers solc
 ```
 
-
 Then just run the thing:
+
 ```bash
 typify-contracts --src ./path/to/contracts/dir
 ```
+
 or:
+
 ```bash
 npx typify-contracts --src ./path/to/contracts/dir
 ```
 
-## Usage (Bun)
+or:
 
-Current `bun` workaround.
-
-Let's first install per dependencies:
 ```bash
-bun add -d ethers solc
-```
-
-
-Then just run the thing:
-```bash
-bun ./node_modules/typify-contracts/library/cli.ts --src ./path/to/contracts/dir
+bunx typify-contracts --src ./path/to/contracts/dir
 ```
