@@ -35,7 +35,7 @@ jobs:
 
                   # Create a directory to store the archive
                   mkdir -p release-archives
-                  tar -czvf release-archives/package.tgz --exclude-from=.npmignore bin package.json LICENSE library tsconfig.json
+                  tar -czvf release-archives/package.tgz bin package.json LICENSE library tsconfig.json
 
             - name: Upload Archive to Release
               id: upload-archive
