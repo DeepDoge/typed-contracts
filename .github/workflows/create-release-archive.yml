@@ -23,11 +23,11 @@ jobs:
 
             - name: Update Bun
               run: |
-                  bash -c 'bun update'
+                  bash -c 'source ~/.bashrc && bun update'
 
             - name: Compile CLI
               run: |
-                  bash -c 'bun compile'
+                  bash -c 'source ~/.bashrc && bun compile'
 
             - name: Create Archive
               run: |
