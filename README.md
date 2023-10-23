@@ -8,10 +8,10 @@ Compile your Solidity code, and generate types for it, with the minimal file gen
 
 ## Usage
 
-Let's first install per dependencies:
+Let's first install peer dependencies:
 
 ```bash
-npm i -D ethers solc
+npm i -D ethers
 ```
 
 Then just run the thing:
