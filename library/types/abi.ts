@@ -1,6 +1,6 @@
 export type Abi = readonly Abi.Item[]
 export namespace Abi {
-	export type Item = FunctionItem | EventItem
+	export type Item = FunctionItem | EventItem | ErrorItem
 
 	type Argument = {
 		type: string
@@ -27,13 +27,23 @@ export namespace Abi {
 	}
 
 	export type EventItem = {
-		type: EventItem.Type
+		type: "event"
 		name: string
 		inputs: readonly EventItem.Input[]
 		anonymous: boolean
 	}
 	export namespace EventItem {
-		export type Type = "event"
+		export type Type = EventItem["type"]
 		export type Input = Argument & { indexed: boolean }
+	}
+
+	export type ErrorItem = {
+		type: "error"
+		name: string
+		inputs: readonly ErrorItem.Input[]
+	}
+	export namespace ErrorItem {
+		export type Type = ErrorItem["type"]
+		export type Input = Argument & {}
 	}
 }
