@@ -1,39 +1,9 @@
-# Typify Contracts
+# Typed Contracts
 
-Compile your Solidity code, and generate types for it, with the minimal file generation needed.
+Typed Contracts is a TypeScript Type library, to generete Typed Contracts from ABI files without any file generation.
+
+Supports: ethers6
 
 ## Install
 
-[Install Instructions](https://github.com/DeepDoge/typify-contracts/releases)
-
-## Usage
-
-Let's first install peer dependencies:
-
-```bash
-npm i -D ethers
-```
-
-or:
-
-```bash
-bun add -d ethers
-```
-
-Then just run the thing:
-
-```bash
-typify-contracts --src ./path/to/contracts/dir
-```
-
-or:
-
-```bash
-npx typify-contracts --src ./path/to/contracts/dir
-```
-
-or:
-
-```bash
-bunx typify-contracts --src ./path/to/contracts/dir
-```
+[Install Instructions](https://github.com/DeepDoge/typed-contracts/releases)

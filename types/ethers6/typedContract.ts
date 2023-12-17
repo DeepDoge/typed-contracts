@@ -1,8 +1,8 @@
 import type { BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
 import type { Booleans, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
-import type { Abi } from "./abi"
+import type { Abi } from "../abi"
 
-export type TypifyContract<TAbi extends Abi> = Contract &
+export type TypedContract<TAbi extends Abi> = Contract &
 	Pipe<TAbi, [Tuples.Filter<Booleans.Extends<{ type: "function" }>>, Tuples.Map<ToFunction>, Tuples.ToUnion, Objects.FromEntries]>
 
 type PromiseOrValue<T> = T | Promise<T>
