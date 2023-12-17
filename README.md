@@ -1,6 +1,6 @@
 # Typed Contracts
 
-Typed Contracts is a TypeScript type library, to create contract types based on ABI data for ethers6, **without any code generation**.
+Typed Contracts is a TypeScript type library, to create contract types based on ABI data, **without any code generation**.
 
 Supports: ethers6
 
