@@ -1,4 +1,4 @@
-import type { BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
+import type { AddressLike, BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
 import type { Booleans, Call, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
 import type { Abi } from "../abi"
 
@@ -27,7 +27,7 @@ interface ToPrimitiveType extends Fn {
 					Match.With<`bytes${number | ""}`, PromiseOrValue<BytesLike>>,
 					Match.With<"string", string>,
 					Match.With<"bool", boolean>,
-					Match.With<"address", string>,
+					Match.With<"address", AddressLike>,
 					Match.With<_, unknown>
 				]
 			>
