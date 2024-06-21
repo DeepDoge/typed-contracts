@@ -1,5 +1,5 @@
 import type { BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
-import type { Booleans, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
+import type { Booleans, Call, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
 import type { Abi } from "../abi"
 
 export type TypedContract<TAbi extends Abi> = Contract &
@@ -12,6 +12,11 @@ interface ToPromise extends Fn {
 }
 
 interface ToType extends Fn {
+	$type: this["arg0"]
+	return: this['$type'] extends `${infer T}[]` ? Call<ToType, T>[] : Call<ToPrimitiveType, this['$type']>
+}
+
+interface ToPrimitiveType extends Fn {
 	$type: this["arg0"]
 	return: Pipe<
 		this["$type"],
