@@ -1,64 +1,82 @@
-import type { AddressLike, BytesLike, Contract, ContractTransaction, Overrides } from "ethers"
-import type { Booleans, Call, ComposeLeft, Fn, Match, Objects, Pipe, Tuples, _ } from "hotscript"
+import type {
+	AddressLike,
+	BytesLike,
+	Contract,
+	ContractTransaction,
+} from "ethers"
 import type { Abi } from "../abi"
 
-export type TypedContract<TAbi extends Abi> = Contract &
-	Pipe<TAbi, [Tuples.Filter<Booleans.Extends<{ type: "function" }>>, Tuples.Map<ToFunction>, Tuples.ToUnion, Objects.FromEntries]>
+type ToType_Base<
+	TypeString extends string,
+	Mode extends "input" | "output"
+> = TypeString extends `${"u" | ""}int${number | ""}` | `${"u" | ""}fixed`
+	? bigint
+	: TypeString extends `bytes${number | ""}`
+	? Mode extends "output"
+		? `0x${string}`
+		: BytesLike
+	: TypeString extends "string"
+	? string
+	: TypeString extends "bool"
+	? boolean
+	: TypeString extends "address"
+	? Mode extends "output"
+		? `0x${string}`
+		: AddressLike
+	: unknown
 
-type PromiseOrValue<T> = T | Promise<T>
+type ToType<
+	TypeString extends string,
+	Mode extends "input" | "output"
+> = TypeString extends `${infer BaseTypeString}[]`
+	? ToType<BaseTypeString, Mode>[]
+	: ToType_Base<TypeString, Mode>
 
-interface ToPromise extends Fn {
-	return: Promise<this["arg0"]>
-}
+declare const LABEL: unique symbol
+type _<Label extends string, T> = { [LABEL]?: Label } & T
 
-interface ToType extends Fn {
-	$type: this["arg0"]
-	return: this['$type'] extends `${infer T}[]` ? Call<ToType, T>[] : Call<ToPrimitiveType, this['$type']>
-}
+type TupleItem = Abi.FunctionItem.Input | Abi.FunctionItem.Output
 
-interface ToPrimitiveType extends Fn {
-	$type: this["arg0"]
-	return: Pipe<
-		this["$type"],
-		[
-			Match<
-				[
-					Match.With<`${"u" | ""}int${number | ""}` | `${"u" | ""}fixed`, bigint>,
-					Match.With<`bytes${number | ""}`, PromiseOrValue<BytesLike>>,
-					Match.With<"string", string>,
-					Match.With<"bool", boolean>,
-					Match.With<"address", AddressLike>,
-					Match.With<_, unknown>
-				]
-			>
-		]
-	>
-}
+type ToTypeTuple<
+	TypeStrings extends readonly TupleItem[],
+	Mode extends "input" | "output",
+	R extends readonly any[] = readonly []
+> = TypeStrings extends readonly [
+	infer Current extends TupleItem,
+	...infer Tail extends readonly TupleItem[]
+]
+	? ToTypeTuple<
+			Tail,
+			Mode,
+			readonly [...R, _<Current["name"], ToType<Current["type"], Mode>>]
+	  >
+	: R
 
-interface ToFunction extends Fn {
-	$name: this["arg0"]["name"]
-	$inputs: this["arg0"]["inputs"]
-	$outputs: this["arg0"]["outputs"]
+type ProcessAbi<
+	TAbi extends Abi,
+	R extends {
+		[key: string]: (...args: any[]) => any
+	} = {}
+> = TAbi extends readonly [
+	infer Current extends Abi.Item,
+	...infer Tail extends readonly Abi.Item[]
+]
+	? Current extends { type: "function" }
+		? ProcessAbi<
+				Tail,
+				R & {
+					[K in Current["name"]]: (
+						...args: ToTypeTuple<Current["inputs"], "input">
+					) => Promise<
+						Current["outputs"]["length"] extends 0
+							? ContractTransaction
+							: Current["outputs"]["length"] extends 1
+							? ToTypeTuple<Current["outputs"], "output">[0]
+							: ToTypeTuple<Current["outputs"], "output">
+					>
+				}
+		  >
+		: ProcessAbi<Tail, R>
+	: R
 
-	$inputsAsArgs: Pipe<this["$inputs"], [Tuples.Map<ComposeLeft<[Objects.Get<"type">, ToType]>>]>
-	$outputsAsTuple: Pipe<this["$outputs"], [Tuples.Map<ComposeLeft<[Objects.Get<"type">, ToType]>>]>
-
-	return: [
-		this["$name"],
-		(
-			...args: Pipe<[overrides?: Overrides], [Tuples.Concat<this["$inputsAsArgs"]>]>
-		) => Pipe<
-			this["$outputsAsTuple"]["length"],
-			[
-				Match<
-					[
-						Match.With<0, ContractTransaction>,
-						Match.With<1, Pipe<this["$outputsAsTuple"], [Tuples.Head]>>,
-						Match.With<_, this["$outputsAsTuple"]>
-					]
-				>,
-				ToPromise
-			]
-		>
-	]
-}
+export type TypedContract<TAbi extends Abi> = Contract & ProcessAbi<TAbi>

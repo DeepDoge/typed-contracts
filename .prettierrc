@@ -9,7 +9,8 @@
 				"printWidth": 80,
 				"semi": false,
 				"arrowParens": "always",
-				"bracketSpacing": true
+				"bracketSpacing": true,
+				"experimentalTernaries": true
 			}
 		}
 	],
