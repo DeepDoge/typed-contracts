@@ -1,3 +1,5 @@
+export type Abi = readonly Abi.Item[]
+
 /**
  * `Abi` represents the structure of an Ethereum contract's Application Binary Interface (ABI),
  * which defines the functions, events, and errors that can be interacted with in the contract.
@@ -30,18 +32,12 @@
  * ];
  * ```
  */
-export type Abi = readonly Abi.Item[]
-
 export namespace Abi {
 	/**
 	 * `Abi.Item` represents a single item in an ABI, which can be either a function, event, or error.
 	 */
 	export type Item = FunctionItem | EventItem | ErrorItem
 
-	/**
-	 * `Abi.FunctionItem` defines a function in a contract's ABI, including its name, inputs, outputs,
-	 * and state mutability.
-	 */
 	export type FunctionItem =
 		| {
 				type: "function"
@@ -57,9 +53,8 @@ export namespace Abi {
 		  }
 
 	/**
-	 * `Abi.FunctionItem.Input` and `Abi.FunctionItem.Output` represent the arguments and return values of a function.
-	 * They both share the same structure, defined by `Abi.Argument`, which includes the argument's type, name,
-	 * and internal type used in Solidity.
+	 * `Abi.FunctionItem` defines a function in a contract's ABI, including its name, inputs, outputs,
+	 * and state mutability.
 	 */
 	export namespace FunctionItem {
 		export type Input = Argument & {}
@@ -81,10 +76,6 @@ export namespace Abi {
 			| "payable"
 	}
 
-	/**
-	 * `Abi.EventItem` defines an event in the contract's ABI, which can be emitted by the contract.
-	 * Each event has a name, inputs, and an `anonymous` flag indicating whether the event is anonymous.
-	 */
 	export type EventItem = {
 		type: "event"
 		name: string
@@ -92,6 +83,10 @@ export namespace Abi {
 		anonymous: boolean
 	}
 
+	/**
+	 * `Abi.EventItem` defines an event in the contract's ABI, which can be emitted by the contract.
+	 * Each event has a name, inputs, and an `anonymous` flag indicating whether the event is anonymous.
+	 */
 	export namespace EventItem {
 		/**
 		 * `Abi.EventItem.Input` represents an argument to an event, with an additional `indexed` flag
@@ -100,15 +95,15 @@ export namespace Abi {
 		export type Input = Argument & { indexed: boolean }
 	}
 
-	/**
-	 * `Abi.ErrorItem` defines an error in the contract's ABI, which can be used for custom error handling.
-	 */
 	export type ErrorItem = {
 		type: "error"
 		name: string
 		inputs: readonly ErrorItem.Input[]
 	}
 
+	/**
+	 * `Abi.ErrorItem` defines an error in the contract's ABI, which can be used for custom error handling.
+	 */
 	export namespace ErrorItem {
 		/**
 		 * `Abi.ErrorItem.Input` represents an argument to an error.

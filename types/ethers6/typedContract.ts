@@ -84,7 +84,7 @@ type ProcessAbi<
  * `Contract` from ethers.js and ensures that function inputs and outputs are correctly
  * typed according to the ABI.
  *
- * @template TAbi - The ABI type representing the structure of the contract.
+ * @template {Abi} TAbi - The ABI type representing the structure of the contract.
  *
  * Each function in the contract is dynamically typed based on its input and output
  * types as specified in the ABI. Functions with no outputs return a `ContractTransaction`,
