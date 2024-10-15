@@ -1,8 +1,9 @@
 {
 	"type": "module",
-	"name": "typify-contracts",
 	"scripts": {
-		"format": "prettier -w ./"
+		"format": "prettier -w ./",
+		"publish": "npx jsr publish",
+		"publish:dry": "npx jsr publish --dry-run"
 	},
 	"devDependencies": {
 		"ethers": "^6.9.0",

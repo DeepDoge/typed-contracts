@@ -6,7 +6,7 @@ Supports: ethers6
 
 ## Install
 
-[Install Instructions](https://github.com/DeepDoge/typed-contracts/releases)
+[jsr.io/@nomadshiba/typed-contracts](https://jsr.io/@nomadshiba/typed-contracts)
 
 ## Usage
 

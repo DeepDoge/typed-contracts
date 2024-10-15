@@ -1,0 +1,11 @@
+{
+	"name": "@nomadshiba/typed-contracts",
+	"version": "0.2.2",
+	"exports": {
+		"./abi": "./types/abi.ts",
+		"./ethers6": "./types/ethers6/exports.ts"
+	},
+	"publish": {
+		"include": ["types", "LICENSE", "README.md"]
+	}
+}
