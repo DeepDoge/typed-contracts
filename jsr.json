@@ -1,6 +1,6 @@
 {
 	"name": "@nomadshiba/typed-contracts",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"exports": {
 		"./abi": "./types/abi.ts",
 		"./ethers6": "./types/ethers6/exports.ts"
