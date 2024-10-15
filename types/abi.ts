@@ -57,7 +57,16 @@ export namespace Abi {
 	 * and state mutability.
 	 */
 	export namespace FunctionItem {
+		/**
+		 * `Input` represents an argument passed to a function in the contract's ABI.
+		 * It includes the argument's type, name, and internal type used by Solidity.
+		 */
 		export type Input = Argument & {}
+
+		/**
+		 * `Output` represents a return value from a function in the contract's ABI.
+		 * It includes the output's type, name, and internal type used by Solidity.
+		 */
 		export type Output = Argument & {}
 
 		/**
