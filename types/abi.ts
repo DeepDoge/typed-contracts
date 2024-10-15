@@ -1,3 +1,6 @@
+/**
+ * Shape of Solidity ABI
+ */
 export type Abi = readonly Abi.Item[]
 export namespace Abi {
 	export type Item = FunctionItem | EventItem | ErrorItem
@@ -25,7 +28,12 @@ export namespace Abi {
 		export type Type = FunctionItem["type"]
 		export type Input = Argument & {}
 		export type Output = Argument & {}
-		export type StateMutability = "pure" | "view" | "constant" | "nonpayable" | "payable"
+		export type StateMutability =
+			| "pure"
+			| "view"
+			| "constant"
+			| "nonpayable"
+			| "payable"
 	}
 
 	export type EventItem = {
