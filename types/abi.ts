@@ -1,14 +1,22 @@
+/**
+ * @module
+ *
+ * This module defines the structure of an Ethereum contract's Application Binary Interface (ABI),
+ * which describes the functions, events, and errors that can be interacted with in the contract.
+ * It provides type definitions and ensures type safety when working with contract interactions.
+ */
+
 export type Abi = readonly Abi.Item[]
 
 /**
- * `Abi` represents the structure of an Ethereum contract's Application Binary Interface (ABI),
+ * This type represents the structure of an Ethereum contract's Application Binary Interface (ABI),
  * which defines the functions, events, and errors that can be interacted with in the contract.
- * It is a readonly array of `Abi.Item`, which can represent functions, events, or errors.
+ * It is a readonly array of items, which can represent functions, events, or errors.
  *
  * @example
  * Example ABI structure:
  * ```ts
- * const exampleAbi: Abi = [
+ * const exampleAbi = [
  *   {
  *     type: "function",
  *     name: "transfer",
@@ -29,12 +37,12 @@ export type Abi = readonly Abi.Item[]
  *     ],
  *     anonymous: false,
  *   },
- * ];
+ * ] as const satisfies Abi;
  * ```
  */
 export namespace Abi {
 	/**
-	 * `Abi.Item` represents a single item in an ABI, which can be either a function, event, or error.
+	 * This type represents a single item in an ABI, which can be either a function, event, or error.
 	 */
 	export type Item = FunctionItem | EventItem | ErrorItem
 
@@ -53,24 +61,24 @@ export namespace Abi {
 		  }
 
 	/**
-	 * `Abi.FunctionItem` defines a function in a contract's ABI, including its name, inputs, outputs,
+	 * This type defines a function in a contract's ABI, including its name, inputs, outputs,
 	 * and state mutability.
 	 */
 	export namespace FunctionItem {
 		/**
-		 * `Input` represents an argument passed to a function in the contract's ABI.
+		 * This type represents an argument passed to a function in the contract's ABI.
 		 * It includes the argument's type, name, and internal type used by Solidity.
 		 */
 		export type Input = Argument & {}
 
 		/**
-		 * `Output` represents a return value from a function in the contract's ABI.
+		 * This type represents a return value from a function in the contract's ABI.
 		 * It includes the output's type, name, and internal type used by Solidity.
 		 */
 		export type Output = Argument & {}
 
 		/**
-		 * `Abi.FunctionItem.StateMutability` defines the mutability of a function, which can be:
+		 * This type defines the mutability of a function, which can be:
 		 * - `pure`: does not read or modify the blockchain state.
 		 * - `view`: reads but does not modify the blockchain state.
 		 * - `constant`: synonym for `view` (legacy usage).
@@ -93,12 +101,12 @@ export namespace Abi {
 	}
 
 	/**
-	 * `Abi.EventItem` defines an event in the contract's ABI, which can be emitted by the contract.
+	 * This type defines an event in the contract's ABI, which can be emitted by the contract.
 	 * Each event has a name, inputs, and an `anonymous` flag indicating whether the event is anonymous.
 	 */
 	export namespace EventItem {
 		/**
-		 * `Abi.EventItem.Input` represents an argument to an event, with an additional `indexed` flag
+		 * This type represents an argument to an event, with an additional `indexed` flag
 		 * indicating whether the argument can be used to filter event logs.
 		 */
 		export type Input = Argument & { indexed: boolean }
@@ -111,20 +119,20 @@ export namespace Abi {
 	}
 
 	/**
-	 * `Abi.ErrorItem` defines an error in the contract's ABI, which can be used for custom error handling.
+	 * This type defines an error in the contract's ABI, which can be used for custom error handling.
 	 */
 	export namespace ErrorItem {
 		/**
-		 * `Abi.ErrorItem.Input` represents an argument to an error.
+		 * This type represents an argument to an error.
 		 */
 		export type Input = Argument & {}
 	}
 
 	/**
-	 * `Abi.Argument` represents a single argument in a function, event, or error.
+	 * This type represents a single argument in a function, event, or error.
 	 * It includes the argument's `type`, `name`, and `internalType` used by Solidity.
 	 */
-	type Argument = {
+	export type Argument = {
 		type: string
 		name: string
 		internalType: string

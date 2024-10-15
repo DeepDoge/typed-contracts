@@ -79,7 +79,7 @@ type ProcessAbi<
 		: ProcessAbi<Tail, R>
 	: R
 /**
- * `TypedContract` is a specialized contract type that provides type-safe methods
+ * This is a specialized contract type that provides type-safe methods
  * for interacting with a contract's functions based on its ABI. It extends the base
  * `Contract` from ethers.js and ensures that function inputs and outputs are correctly
  * typed according to the ABI.
