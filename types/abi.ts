@@ -1,7 +1,7 @@
 /**
  * @module
  *
- * This module defines the structure of an Ethereum contract's Application Binary Interface (ABI),
+ * This module defines the structure of an EVM contract's Application Binary Interface (ABI),
  * which describes the functions, events, and errors that can be interacted with in the contract.
  * It provides type definitions and ensures type safety when working with contract interactions.
  */
@@ -9,7 +9,7 @@
 export type Abi = readonly Abi.Item[]
 
 /**
- * This type represents the structure of an Ethereum contract's Application Binary Interface (ABI),
+ * This type represents the structure of an EVM contract's Application Binary Interface (ABI),
  * which defines the functions, events, and errors that can be interacted with in the contract.
  * It is a readonly array of items, which can represent functions, events, or errors.
  *
