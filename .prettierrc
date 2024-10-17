@@ -6,7 +6,7 @@
 				"tabWidth": 4,
 				"useTabs": true,
 				"bracketSameLine": true,
-				"printWidth": 80,
+				"printWidth": 120,
 				"semi": false,
 				"arrowParens": "always",
 				"bracketSpacing": true,

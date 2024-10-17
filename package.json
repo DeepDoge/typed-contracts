@@ -7,8 +7,8 @@
 	},
 	"devDependencies": {
 		"ethers": "^6.9.0",
-		"prettier": "^2.8.8",
-		"prettier-plugin-organize-imports": "^3.2.2"
+		"prettier": "^3.3.3",
+		"prettier-plugin-organize-imports": "^4.1.0"
 	},
 	"peerDependencies": {
 		"ethers": "6.*"

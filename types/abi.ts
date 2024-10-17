@@ -85,12 +85,7 @@ export namespace Abi {
 		 * - `nonpayable`: does not accept Ether but may modify the state.
 		 * - `payable`: accepts Ether and may modify the state.
 		 */
-		export type StateMutability =
-			| "pure"
-			| "view"
-			| "constant"
-			| "nonpayable"
-			| "payable"
+		export type StateMutability = "pure" | "view" | "constant" | "nonpayable" | "payable"
 	}
 
 	export type EventItem = {
