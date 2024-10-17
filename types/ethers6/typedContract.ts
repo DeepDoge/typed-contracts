@@ -39,22 +39,19 @@ type ProcessAbi<
 	TAbi extends Abi,
 	R extends {
 		[key: string]: (...args: any[]) => any
-	} = {}
-> = TAbi extends readonly [infer Current extends Abi.Item, ...infer Tail extends readonly Abi.Item[]]
-	? Current extends { type: "function" }
-		? ProcessAbi<
+	} = {},
+> =
+	TAbi extends readonly [infer Current extends Abi.Item, ...infer Tail extends readonly Abi.Item[]] ?
+		Current extends { type: "function" } ?
+			ProcessAbi<
 				Tail,
 				R & {
-					[K in Current["name"]]: (
-						...args: ToTypeTuple<Current["inputs"], "input">
-					) => Promise<
-						Current["outputs"]["length"] extends 0
-							? ContractTransaction
-							: Current["outputs"]["length"] extends 1
-							? ToTypeTuple<Current["outputs"], "output">[0]
-							: ToTypeTuple<Current["outputs"], "output">
+					[K in Current["name"]]: (...args: ToTypeTuple<Current["inputs"], "input">) => Promise<
+						Current["outputs"]["length"] extends 0 ? ContractTransaction
+						: Current["outputs"]["length"] extends 1 ? ToTypeTuple<Current["outputs"], "output">[0]
+						: ToTypeTuple<Current["outputs"], "output">
 					>
 				}
-		  >
-		: ProcessAbi<Tail, R>
-	: R
+			>
+		:	ProcessAbi<Tail, R>
+	:	R

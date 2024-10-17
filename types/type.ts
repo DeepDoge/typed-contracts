@@ -1,4 +1,4 @@
-import { AddressLike, BytesLike } from "ethers"
+import type { AddressLike, BytesLike } from "ethers"
 import { Abi } from "./abi"
 
 declare const LABEL: unique symbol
@@ -9,15 +9,15 @@ export type TupleItem = Abi.FunctionItem.Input | Abi.FunctionItem.Output
 export type ToTypeTuple<
 	TypeStrings extends readonly TupleItem[],
 	Mode extends "input" | "output",
-	R extends readonly any[] = readonly []
-> = TypeStrings extends readonly [infer Current extends TupleItem, ...infer Tail extends readonly TupleItem[]]
-	? ToTypeTuple<Tail, Mode, readonly [...R, _<Current["name"], ToType<Current["type"], Mode>>]>
-	: R
+	R extends readonly any[] = readonly [],
+> =
+	TypeStrings extends readonly [infer Current extends TupleItem, ...infer Tail extends readonly TupleItem[]] ?
+		ToTypeTuple<Tail, Mode, readonly [...R, _<Current["name"], ToType<Current["type"], Mode>>]>
+	:	R
 
-export type ToType<T extends string, Mode extends "input" | "output"> = T extends keyof PrimativeTypeMap
-	? PrimativeTypeMap[T][Mode]
-	: T extends `${infer T}[]`
-	? ToType<T, Mode>[]
+export type ToType<T extends string, Mode extends "input" | "output"> =
+	T extends keyof PrimativeTypeMap ? PrimativeTypeMap[T][Mode]
+	: T extends `${infer T}[]` ? ToType<T, Mode>[]
 	: never
 
 export type PrimativeTypeMap = {
