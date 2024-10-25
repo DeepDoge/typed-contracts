@@ -1,6 +1,15 @@
+/**
+ * @module
+ *
+ * This module provides support for ethers6.
+ * It allows for type-safe interactions with EVM contracts
+ * using ethers.js.
+ */
+
 import type { Contract, ContractTransaction } from "ethers"
-import type { Abi } from "../abi"
-import { ToTypeTuple } from "../type"
+import { AddressLike, BytesLike } from "ethers"
+import type { Abi } from "./abi"
+import { PrimativeTypeMapBase, ToTypeTuple } from "./type"
 
 /**
  * This is a specialized contract type that provides type-safe methods
@@ -33,9 +42,10 @@ import { ToTypeTuple } from "../type"
  * const balance = await erc20.balanceOf("0xYourWalletAddress");
  * ```
  */
-export type TypedContract<TAbi extends Abi> = Contract & ProcessAbi<TAbi>
-
-type ProcessAbi<
+export type TypedContract<TAbi extends Abi, TMap extends PrimativeTypeMapBase = TypedContract.PrimativeTypeMap> = Contract &
+	FromAbi<TMap, TAbi>
+type FromAbi<
+	TMap extends PrimativeTypeMapBase,
 	TAbi extends Abi,
 	R extends {
 		[key: string]: (...args: any[]) => any
@@ -43,15 +53,44 @@ type ProcessAbi<
 > =
 	TAbi extends readonly [infer Current extends Abi.Item, ...infer Tail extends readonly Abi.Item[]] ?
 		Current extends { type: "function" } ?
-			ProcessAbi<
+			FromAbi<
+				TMap,
 				Tail,
 				R & {
-					[K in Current["name"]]: (...args: ToTypeTuple<Current["inputs"], "input">) => Promise<
+					[K in Current["name"]]: (...args: ToTypeTuple<TMap, Current["inputs"], "input">) => Promise<
 						Current["outputs"]["length"] extends 0 ? ContractTransaction
-						: Current["outputs"]["length"] extends 1 ? ToTypeTuple<Current["outputs"], "output">[0]
-						: ToTypeTuple<Current["outputs"], "output">
+						: Current["outputs"]["length"] extends 1 ? ToTypeTuple<TMap, Current["outputs"], "output">[0]
+						: ToTypeTuple<TMap, Current["outputs"], "output">
 					>
 				}
 			>
-		:	ProcessAbi<Tail, R>
+		:	FromAbi<TMap, Tail, R>
 	:	R
+	
+export namespace TypedContract {
+	export type PrimativeTypeMap = {
+		[K in `${"u" | ""}int${number | ""}` | `${"u" | ""}fixed`]: {
+			input: bigint
+			output: bigint
+		}
+	} & {
+		[K in `bytes${number | ""}`]: {
+			input: BytesLike
+			output: `0x${string}`
+		}
+	} & {
+		string: {
+			input: string
+			output: string
+		}
+		bool: {
+			input: boolean
+			output: boolean
+		}
+		address: {
+			input: AddressLike
+			output: `0x${string}`
+		}
+	}
+}
+

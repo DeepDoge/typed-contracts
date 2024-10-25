@@ -7,6 +7,7 @@
 
 		"noEmit": true,
 		"moduleDetection": "force",
+		"moduleResolution": "Bundler",
 		"esModuleInterop": true,
 
 		"skipLibCheck": true,
