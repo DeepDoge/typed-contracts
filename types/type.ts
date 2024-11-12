@@ -19,5 +19,5 @@ export type ToTypeTuple<
 
 export type ToType<TMap extends PrimativeTypeMapBase, T extends string, Mode extends "input" | "output"> =
 	T extends keyof TMap ? TMap[T][Mode]
-	: T extends `${infer T}[]` ? ToType<TMap, T, Mode>[]
+	: T extends `${infer T}[]` ? readonly ToType<TMap, T, Mode>[]
 	: never
