@@ -42,8 +42,10 @@ import { PrimativeTypeMapBase, ToTypeTuple } from "./type"
  * const balance = await erc20.balanceOf("0xYourWalletAddress");
  * ```
  */
-export type TypedContract<TAbi extends Abi, TMap extends PrimativeTypeMapBase = TypedContract.PrimativeTypeMap> = Contract &
-	FromAbi<TMap, TAbi>
+export type TypedContract<
+	TAbi extends Abi,
+	TMap extends PrimativeTypeMapBase = TypedContract.PrimativeTypeMap,
+> = Contract & FromAbi<TMap, TAbi>
 type FromAbi<
 	TMap extends PrimativeTypeMapBase,
 	TAbi extends Abi,
@@ -66,15 +68,15 @@ type FromAbi<
 			>
 		:	FromAbi<TMap, Tail, R>
 	:	R
-	
+
 export namespace TypedContract {
 	export type PrimativeTypeMap = {
-		[K in `${"u" | ""}int${number | ""}` | `${"u" | ""}fixed`]: {
+		[K in `${"u" | ""}int${bigint | ""}` | `${"u" | ""}fixed`]: {
 			input: bigint
 			output: bigint
 		}
 	} & {
-		[K in `bytes${number | ""}`]: {
+		[K in `bytes${bigint | ""}`]: {
 			input: BytesLike
 			output: `0x${string}`
 		}
@@ -93,4 +95,3 @@ export namespace TypedContract {
 		}
 	}
 }
-
