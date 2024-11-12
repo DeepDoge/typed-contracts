@@ -1,6 +1,6 @@
 {
 	"name": "@nomadshiba/typed-contracts",
-	"version": "0.2.13",
+	"version": "0.2.14",
 	"exports": {
 		".": "./types/mod.ts",
 		"./abi": "./types/abi.ts",
